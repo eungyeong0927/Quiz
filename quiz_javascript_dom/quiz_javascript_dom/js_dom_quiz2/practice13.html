@@ -16,7 +16,7 @@
             <label for="operator">연산자: </label>
             <input type="text" id="operator" /><br />
             <button type="button" onclick="cal();">계산</button>
-            <button type="button" onclick="reset();">초기화</button><br /><br />
+            <button type="button" onclick="resetForm();">초기화</button><br /><br />
             <label for="result">결과: </label>
             <input type="text" id="result" disabled="true" />
             <!-- 
@@ -30,10 +30,44 @@
             // cal(), reset() 함수를 미리 정의해두었습니다.
 
             // [계산] 버튼 클릭시 cal() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
-            function cal() {}
+
+            function cal() {
+                let value1 = document.querySelector("#value1");
+                let value2 = document.querySelector("#value2");
+                let operator = document.querySelector("#operator");
+
+                let value1_value = Number(value1.value); // 값1
+                let value2_value = Number(value2.value); // 값2
+                let operator_value = operator.value; //값3
+                let cal_result;
+                //
+                if (operator_value == "+" || operator_value == "-" || operator_value == "*" || operator_value == "/") {
+                    if (operator_value === "+") {
+                        cal_result = value1_value + value2_value;
+                    } else if (operator_value === "-") {
+                        cal_result = value1_value - value2_value;
+                    } else if (operator_value === "*") {
+                        cal_result = value1_value * value2_value;
+                    } else {
+                        cal_result = value1_value / value2_value;
+                    }
+
+                    let result = document.querySelector("#result");
+                    result.disabled = false;
+                    result.value = cal_result;
+                } else {
+                }
+            }
 
             // [초기화] 버튼 클릭시 reset() 함수가 실행되도록 인라인 방식으로 미리 설정해 두었습니다.
-            function reset() {}
+            function resetForm() {
+                document.querySelector("#value1").value = "";
+                document.querySelector("#value2").value = "";
+                document.querySelector("#operator").value = "";
+                let result2 = document.querySelector("#result");
+                result2.value = "";
+                result2.disabled = true;
+            }
         </script>
     </body>
 </html>
