@@ -67,23 +67,43 @@
         <script>
             // TODO: 문제 조건을 만족하는 js 코드 작성
             // (참고) done 클래스와 todo 클래스에 대한 스타일시트는 haed > style 태그에 이미 정의되어 있습니다.
-            let complete = document.querySelectorAll(".todo>span");
-            for (i = 0; i < 2; i++) {
-                complete[i].style.textDecoration = "line-through";
-                complete[i].style.fontStyle = "italic";
-                complete[i].style.color = "#bbb";
-                complete[i].style.backgroundColor = "white";
-                complete[i].style.fontWeight = "normal";
-            }
+            /*
+                        let complete = document.querySelectorAll(".todo > span");
+                        for (i = 0; i < 2; i++) {
+                            complete[i].style.textDecoration = "line-through";
+                            complete[i].style.fontStyle = "italic";
+                            complete[i].style.color = "#bbb";
+                            complete[i].style.backgroundColor = "white";
+                            complete[i].style.fontWeight = "normal";
+                        }
 
-            let uncomplete = document.querySelectorAll(".done > span");
-            for (i = 0; i < 3; i++) {
-                uncomplete[i].style.fontWeight = "700";
-                uncomplete[i].style.backgroundColor = "rgb(255, 233, 111)";
-                uncomplete[i].style.fontStyle = "normal";
-                uncomplete[i].style.textDecoration = "none";
-                uncomplete[i].style.color = "black";
-            }
+                        let uncomplete = document.querySelectorAll(".done > span");
+                        for (i = 0; i < 3; i++) {
+                            uncomplete[i].style.fontWeight = "700";
+                            uncomplete[i].style.backgroundColor = "rgb(255, 233, 111)";
+                            uncomplete[i].style.fontStyle = "normal";
+                            uncomplete[i].style.textDecoration = "none";
+                            uncomplete[i].style.color = "black";
+                        }
+                        */
+            /*
+                        let todo = document.querySelectorAll(".todo");
+                        let done = document.querySelectorAll(".done");
+
+                        todo.forEach((element) => {
+                            element.classList.add("done");
+                            element.classList.remove("todo");
+                        });
+                        todo.forEach((element) => {
+                            element.classList.add("todo");
+                            element.classList.remove("done");
+                        });
+                        */
+            let li = document.querySelectorAll("li");
+            li.forEach((element) => {
+                element.classList.toggle("todo");
+                element.classList.toggle("done");
+            });
         </script>
     </body>
 </html>
